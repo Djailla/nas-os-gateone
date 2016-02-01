@@ -1,0 +1,24 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+
+PIDFILE=/opt/gateone/pid
+
+sed -i "s/\"port\":[0-9]*/\"port\":$RAINBOW_PORT_WEB_UI/" /opt/gateone/.config
+
+case $1 in
+    start)
+		mount -t tmpfs -o rw,nosuid,nodev,noexec,size=256M tmpfs /dev/shm
+        start-stop-daemon --start \
+                          --make-pidfile \
+                          --pidfile $PIDFILE \
+                          --background \
+                          --exec /usr/local/bin/gateone \
+                          -- --port=$RAINBOW_PORT_WEB_UI --disable_ssl
+	    ;;
+    stop)
+    	start-stop-daemon --stop --pidfile $PIDFILE
+    	rm $PIDFILE
+    	;;
+esac

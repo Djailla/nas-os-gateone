@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "{\"port\":$RAINBOW_PORT_WEB_UI, \"path\":\"$RAINBOW_WEB_PATH\"}" > /opt/gateone/.config
+
+exit 0
