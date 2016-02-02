@@ -6,7 +6,7 @@ install -m 755 /home/source/rc.local /etc
 
 # Install dependencies
 apt-get update
-apt-get install  -y -q ssh
+apt-get install -y -q ssh
 
 pip install gateone
 
