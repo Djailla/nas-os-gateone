@@ -1,7 +1,7 @@
 {
     "type": "application",
     "id": "com.djailla.gateone",
-    "version": "1.0.1-dev",
+    "version": "1.0.1",
     "depends": [
         "org.debian.wheezy-lamp-1.2"
     ],
